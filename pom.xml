@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.jlobato.gpro</groupId>
+  <artifactId>gpro-utils</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <name>gpro-utils</name>
+  <url>http://maven.apache.org</url>
+
+<!-- Propiedades generales del proyecto -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<java.build.version>1.8</java.build.version>
+	<java.source.version>1.8</java.source.version>
+	<maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>  	
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.10</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- JODA -->
+	<dependency>
+	  <groupId>joda-time</groupId>
+	  <artifactId>joda-time</artifactId>
+	  <version>2.9.1</version>
+	</dependency>
+    
+  </dependencies>
+  
+<!-- Desarrolladores del proyecto -->
+  <developers>
+    <developer>
+      <id>yisasthemanuel</id>
+      <name>Jesús Manuel Pérez Lobato</name>
+      <email>yisasthemanuel@gmail.com</email>
+      <url>http://theyisasthemanuelprojectpage.com</url>
+      <organization>La mía propia</organization>
+      <organizationUrl>http://www.lamiapropia.com</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+        <role>deliveries boy</role>
+      </roles>
+      <timezone>Europe/Madrid</timezone>
+    </developer>
+  </developers>
+  
+</project>
