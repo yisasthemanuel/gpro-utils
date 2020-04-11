@@ -16,14 +16,15 @@
 	<java.build.version>1.8</java.build.version>
 	<java.source.version>1.8</java.source.version>
 	<maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>  	
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <junit.version>4.13.1</junit.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.10</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
     
