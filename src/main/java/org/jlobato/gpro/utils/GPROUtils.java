@@ -4,7 +4,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
+import java.util.Locale;
 import java.util.Optional;
 
 import org.joda.time.Period;
@@ -18,8 +20,11 @@ import org.joda.time.format.PeriodFormatterBuilder;
  */
 public class GPROUtils {
 	
-	private static final DecimalFormat decimalFormat = new DecimalFormat("$###,###,###,###;$-###,###,###,###");
+	private static final DecimalFormat decimalFormat = new DecimalFormat("$###,###,###,###;$-###,###,###,###", new DecimalFormatSymbols(new Locale("es")));
 	
+	private GPROUtils() {
+		
+	}
 
 	/**
 	 * 
@@ -37,10 +42,10 @@ public class GPROUtils {
 			int acum = Integer.parseInt(parteDecimal);
 			int index = 0;
 			for (int i = partesEnteras.length - 1; i >= 0; i--) {
-				acum += Integer.parseInt(partesEnteras[i]) * TIME_FACTORS[index];
+				acum += Integer.parseInt(partesEnteras[i]) * timeFactors[index];
 				index++;
 			}
-			result = new Integer(acum);
+			result = Integer.valueOf(acum);
 		}
 		return result;
 	}
@@ -57,7 +62,7 @@ public class GPROUtils {
 					.appendSeparator(":").minimumPrintedDigits(2).appendSeconds().appendSeparator(".")
 					.appendMillis3Digit().toFormatter();
 			Period period = Period.parse(lapTime, periodFormat);
-			result = new Integer((int) period.toStandardDuration().getMillis());
+			result = Integer.valueOf(((int) period.toStandardDuration().getMillis()));
 		} catch (Exception e) {
 			// Nos callamos como ...
 		}
@@ -73,8 +78,7 @@ public class GPROUtils {
 		int index1 = pitInfo.indexOf("Stop") + "Stop".length();
 		int index2 = pitInfo.indexOf("(");
 		String lapNo = excellTrim(pitInfo.substring(index1, index2));
-		Integer result = new Integer(lapNo.trim());
-		return result;
+		return Integer.valueOf(lapNo.trim());
 	}
 	
 	/**
@@ -89,7 +93,7 @@ public class GPROUtils {
 	/**
 	 * 
 	 */
-	public static int[] TIME_FACTORS = {1000, 60 * 1000, 60 * 60 * 1000};
+	protected static int[] timeFactors = {1000, 60 * 1000, 60 * 60 * 1000};
 
 	/**
 	 * 
@@ -161,6 +165,7 @@ public class GPROUtils {
 				result = clazz.getConstructor(value.getClass()).newInstance(value);
 			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
 					| InvocationTargetException | NoSuchMethodException | SecurityException e) {
+				return null;
 			}
 		}
 		return result;
