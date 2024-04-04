@@ -6,6 +6,9 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -240,4 +243,37 @@ public class GPROUtils {
 		
 		return result;
 	}
+	
+	public static String getIDSeason(String seasonAsString) {
+		if (seasonAsString == null) return null;
+		int commaIndex = seasonAsString.indexOf(",");
+		int spaceIndex = seasonAsString.indexOf(" ") + 1;
+		return seasonAsString.substring(spaceIndex, commaIndex);
+	}
+	
+	public static String getIDRace(String seasonAsString) {
+		if (seasonAsString == null) return null;
+		int spaceIndex = seasonAsString.lastIndexOf(" ") + 1;
+		return seasonAsString.substring(spaceIndex);
+	}
+	
+	
+	public static String convertDate(String dateGproFormat) {
+		DateTimeFormatter inputFormatter = new DateTimeFormatterBuilder()
+				.parseCaseInsensitive()
+				.appendPattern("MMM d['th']['nd']['st']['rd'], yyyy")
+				.toFormatter(Locale.ENGLISH);
+        
+        // Definir el formato de salida
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        // Parsear la fecha de entrada
+        LocalDate date = LocalDate.parse(dateGproFormat, inputFormatter);
+        
+        // Formatear la fecha con el formato deseado
+        String formattedDate = date.format(outputFormatter);
+        
+        return formattedDate;
+	}
+	
 }
