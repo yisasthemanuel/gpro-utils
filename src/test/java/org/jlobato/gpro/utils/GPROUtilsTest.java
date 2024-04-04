@@ -61,8 +61,34 @@ public class GPROUtilsTest {
 	public void testMoney() {
 		String balance = "$219.871.105";
 		String negativeBalance = "$-470.691";
-		assertEquals(new Integer(219871105), GPROUtils.getMoneyAsInt(balance));
-		assertEquals(new Integer(-470691), GPROUtils.getMoneyAsInt(negativeBalance));
+		assertEquals(Integer.valueOf(219871105), GPROUtils.getMoneyAsInt(balance));
+		assertEquals(Integer.valueOf(-470691), GPROUtils.getMoneyAsInt(negativeBalance));
+	}
+	
+	@Test
+	public void testGetIDSeasonAndRace() {
+		assertEquals("67", GPROUtils.getIDSeason("Season 67, Race 16"));
+		assertEquals("16", GPROUtils.getIDRace("Season 67, Race 16"));
+		assertEquals("72", GPROUtils.getIDSeason("Season 72, Race 13"));
+		assertEquals("13", GPROUtils.getIDRace("Season 72, Race 13"));
+	}
+	
+	@Test
+	public void testConvertDate() {
+		//Oct 11th, 2019
+		assertEquals("11/10/2019", GPROUtils.convertDate("Oct 11th, 2019"));
+		//Mar 22nd, 2022
+		assertEquals("22/03/2022", GPROUtils.convertDate("Mar 22nd, 2022"));
+		//Sep 22nd, 2023
+		assertEquals("22/09/2023", GPROUtils.convertDate("Sep 22nd, 2023"));
+		//Jul 1st, 1972
+		assertEquals("01/07/1972", GPROUtils.convertDate("Jul 1st, 1972"));
+		//May 3rd, 2019
+		assertEquals("03/05/2019", GPROUtils.convertDate("May 3rd, 2019"));
+		//Mar 7th, 2023
+		assertEquals("07/03/2023", GPROUtils.convertDate("Mar 7th, 2023"));
+		//Mar 1st, 2016
+		assertEquals("01/03/2016", GPROUtils.convertDate("Mar 1st, 2016"));
 	}
 
 }
