@@ -9,10 +9,7 @@ Libería que contiene utilidades de propósito general dentro del proyecto GPRO.
 
 ### Prerequisitos
 
-* Un IDE con soporte al proyecto Lombok (<https://projectlombok.org/>): Eclipse, IntelliJ, Visual Studio Code.
-* Máquina versión Java instalada. Bien:
-** JKD 1.8 de Oracle
-** La JVM OpenJ9 instalada (<https://adoptopenjdk.net/installation.html#linux-pkg>, <https://adoptopenjdk.net/releases.html?variant=openjdk8&jvmVariant=openj9>)
+* Máquina versión 17 Java instalada (<https://adoptium.net/es/temurin/releases/?package=jdk&version=17>)
 * Maven: No necesario, está integrado en el proyecto mediante "maven wrapper" / mvnw (<https://github.com/takari/maven-wrapper>)
 
 
@@ -32,6 +29,11 @@ Para publicar el jar en el repositorio maven local
 $ cd gpro-utils
 $ ./mvnw clean install
 ```
+
+## Changelog [ES]
+
+* **1.0.2 (04/04/2024)** - Se añaden los métodos getIDSeason, getIDRace y convertDate para poder parsear datos provenientes de la página de récords que los managers de un equipo han establecido en un circuito concreto.
+
 ## TO DOs
 
 * Integrar con Artifactory para publicar las nuevas releases

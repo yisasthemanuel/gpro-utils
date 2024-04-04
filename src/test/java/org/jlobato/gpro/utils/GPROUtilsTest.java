@@ -6,21 +6,40 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * The Class GPROUtilsTest.
+ */
 public class GPROUtilsTest {
 
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 	}
 
+	/**
+	 * Tear down.
+	 *
+	 * @throws Exception the exception
+	 */
 	@After
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * Test get ID manager from link.
+	 */
 	@Test
 	public void testGetIDManagerFromLink() {
 		assertEquals("113612", GPROUtils.getIDManagerFromLink("ManagerProfile.asp?IDM=113612"));
 	}
 	
+	/**
+	 * Test category and group.
+	 */
 	@Test
 	public void testCategoryAndGroup() {
 		String group = "M-1";
@@ -32,6 +51,9 @@ public class GPROUtilsTest {
 		assertNull(GPROUtils.getGroupId(group));
 	}
 	
+	/**
+	 * Test driver energy.
+	 */
 	@Test
 	public void testDriverEnergy() {
 		//Test driver energy
@@ -40,6 +62,9 @@ public class GPROUtilsTest {
 		assertEquals(90, GPROUtils.getDriverEnergyAtEnd(driverEnergyExample));
 	}
 	
+	/**
+	 * Test roman numeral.
+	 */
 	@Test
 	public void testRomanNumeral() {
 	    assertEquals("MMMMCMXCIX", RomanNumeral.toRoman(4999));
@@ -57,6 +82,9 @@ public class GPROUtilsTest {
 	    assertEquals("MCMLXXII", RomanNumeral.toRoman(1972));
 	}
 	
+	/**
+	 * Test money.
+	 */
 	@Test
 	public void testMoney() {
 		String balance = "$219.871.105";
@@ -65,6 +93,9 @@ public class GPROUtilsTest {
 		assertEquals(Integer.valueOf(-470691), GPROUtils.getMoneyAsInt(negativeBalance));
 	}
 	
+	/**
+	 * Test get ID season and race.
+	 */
 	@Test
 	public void testGetIDSeasonAndRace() {
 		assertEquals("67", GPROUtils.getIDSeason("Season 67, Race 16"));
@@ -73,6 +104,9 @@ public class GPROUtilsTest {
 		assertEquals("13", GPROUtils.getIDRace("Season 72, Race 13"));
 	}
 	
+	/**
+	 * Test convert date.
+	 */
 	@Test
 	public void testConvertDate() {
 		//Oct 11th, 2019

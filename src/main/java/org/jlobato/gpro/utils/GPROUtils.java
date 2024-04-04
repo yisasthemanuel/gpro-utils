@@ -17,22 +17,27 @@ import org.joda.time.format.PeriodFormatter;
 import org.joda.time.format.PeriodFormatterBuilder;
 
 /**
- * 
- * @author jlobato
+ * The Class GPROUtils.
  *
+ * @author jlobato
  */
 public class GPROUtils {
 	
+	/** The Constant decimalFormat. */
 	private static final DecimalFormat decimalFormat = new DecimalFormat("$###,###,###,###;$-###,###,###,###", new DecimalFormatSymbols(new Locale("es")));
 	
+	/**
+	 * Instantiates a new GPRO utils.
+	 */
 	private GPROUtils() {
 		
 	}
 
 	/**
-	 * 
-	 * @param lapTime
-	 * @return
+	 * Gets the miliseconds.
+	 *
+	 * @param lapTime the lap time
+	 * @return the miliseconds
 	 */
 	public static Integer getMiliseconds(String lapTime) {
 		Integer result = null;
@@ -54,9 +59,10 @@ public class GPROUtils {
 	}
 	
 	/**
-	 * 
-	 * @param lapTime
-	 * @return
+	 * Gets the milis.
+	 *
+	 * @param lapTime the lap time
+	 * @return the milis
 	 */
 	public static Integer getMilis(String lapTime) {
 		Integer result = null;
@@ -73,9 +79,10 @@ public class GPROUtils {
 	}
 	
 	/**
-	 * 
-	 * @param pitInfo
-	 * @return
+	 * Gets the pit no.
+	 *
+	 * @param pitInfo the pit info
+	 * @return the pit no
 	 */
 	public static Integer getPitNo(String pitInfo) {
 		int index1 = pitInfo.indexOf("Stop") + "Stop".length();
@@ -85,24 +92,24 @@ public class GPROUtils {
 	}
 	
 	/**
-	 * 
-	 * @param excelSting
-	 * @return
+	 * Excell trim.
+	 *
+	 * @param excelSting the excel sting
+	 * @return the string
 	 */
 	public static String excellTrim(String excelSting) {
 		return excelSting.replaceAll("\\u00A0", "");
 	}
 
-	/**
-	 * 
-	 */
+	/** The time factors. */
 	protected static int[] timeFactors = {1000, 60 * 1000, 60 * 60 * 1000};
 
 	/**
-	 * 
-	 * @param numero
-	 * @param decimales
-	 * @return
+	 * Redondeo.
+	 *
+	 * @param numero the numero
+	 * @param decimales the decimales
+	 * @return the double
 	 */
 	public static double redondeo(double numero, int decimales) {
 		double result = 0.0;
@@ -118,9 +125,10 @@ public class GPROUtils {
 	}
 	
 	/**
-	 * 
-	 * @param linkUrl
-	 * @return
+	 * Gets the ID manager from link.
+	 *
+	 * @param linkUrl the link url
+	 * @return the ID manager from link
 	 */
 	public static String getIDManagerFromLink(String linkUrl) {
 		String result = "";
@@ -130,9 +138,10 @@ public class GPROUtils {
 	}
 	
 	/**
-	 * 
-	 * @param group
-	 * @return
+	 * Gets the category code.
+	 *
+	 * @param group the group
+	 * @return the category code
 	 */
 	public static String getCategoryCode(String group) {
 		String result = "";
@@ -142,9 +151,10 @@ public class GPROUtils {
 	}
 	
 	/**
-	 * 
-	 * @param group
-	 * @return
+	 * Gets the group id.
+	 *
+	 * @param group the group
+	 * @return the group id
 	 */
 	public static String getGroupId(String group) {
 		String result = null;
@@ -156,10 +166,12 @@ public class GPROUtils {
 	}
 	
 	/**
-	 * 
-	 * @param value
-	 * @param clazz
-	 * @return
+	 * Cast if not null.
+	 *
+	 * @param <T> the generic type
+	 * @param value the value
+	 * @param clazz the clazz
+	 * @return the t
 	 */
 	public static <T> T castIfNotNull(Object value, Class<T>clazz) {
 		T result = null;
@@ -175,9 +187,10 @@ public class GPROUtils {
 	}
 	
 	/**
-	 * 
-	 * @param url
-	 * @return
+	 * Gets the tyre brand code.
+	 *
+	 * @param url the url
+	 * @return the tyre brand code
 	 */
 	public static String getTyreBrandCode(String url) {
 		Optional<String> result = Optional.ofNullable(url);
@@ -197,9 +210,10 @@ public class GPROUtils {
 	}
 	
 	/**
-	 * 
-	 * @param driverEnergyValue
-	 * @return
+	 * Gets the driver energy at start.
+	 *
+	 * @param driverEnergyValue the driver energy value
+	 * @return the driver energy at start
 	 */
 	public static int getDriverEnergyAtStart(String driverEnergyValue) {
 		int firstPercentIndex = driverEnergyValue.indexOf("%");
@@ -207,9 +221,10 @@ public class GPROUtils {
 	}
 	
 	/**
-	 * 
-	 * @param driverEnergyValue
-	 * @return
+	 * Gets the driver energy at end.
+	 *
+	 * @param driverEnergyValue the driver energy value
+	 * @return the driver energy at end
 	 */
 	public static int getDriverEnergyAtEnd(String driverEnergyValue) {
 		//Metemos +2 porque el espacio no se limpia con trim (no se muy bien porque)
@@ -219,9 +234,10 @@ public class GPROUtils {
 	}
 
 	/**
-	 * 
-	 * @param pitTime
-	 * @return
+	 * Gets the pit time millis.
+	 *
+	 * @param pitTime the pit time
+	 * @return the pit time millis
 	 */
 	public static int getPitTimeMillis(String pitTime) {
 		String[] pitTimeParts = pitTime.split("\\.");
@@ -229,9 +245,10 @@ public class GPROUtils {
 	}
 
 	/**
-	 * 
-	 * @param moneyBalance
-	 * @return
+	 * Gets the money as int.
+	 *
+	 * @param moneyBalance the money balance
+	 * @return the money as int
 	 */
 	public static Integer getMoneyAsInt(String moneyBalance) {
 		Integer result = null;
@@ -244,6 +261,12 @@ public class GPROUtils {
 		return result;
 	}
 	
+	/**
+	 * Gets the ID season.
+	 *
+	 * @param seasonAsString the season as string
+	 * @return the ID season
+	 */
 	public static String getIDSeason(String seasonAsString) {
 		if (seasonAsString == null) return null;
 		int commaIndex = seasonAsString.indexOf(",");
@@ -251,6 +274,12 @@ public class GPROUtils {
 		return seasonAsString.substring(spaceIndex, commaIndex);
 	}
 	
+	/**
+	 * Gets the ID race.
+	 *
+	 * @param seasonAsString the season as string
+	 * @return the ID race
+	 */
 	public static String getIDRace(String seasonAsString) {
 		if (seasonAsString == null) return null;
 		int spaceIndex = seasonAsString.lastIndexOf(" ") + 1;
@@ -258,6 +287,12 @@ public class GPROUtils {
 	}
 	
 	
+	/**
+	 * Convert date.
+	 *
+	 * @param dateGproFormat the date gpro format
+	 * @return the string
+	 */
 	public static String convertDate(String dateGproFormat) {
 		DateTimeFormatter inputFormatter = new DateTimeFormatterBuilder()
 				.parseCaseInsensitive()

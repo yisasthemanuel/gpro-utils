@@ -1,16 +1,18 @@
 package org.jlobato.gpro.utils;
 
+
 /**
- * 
- * @author jmplobato
+ * The Class RomanNumeral.
  *
+ * @author jmplobato
  */
 public class RomanNumeral {
 
 	/**
-	 * 
-	 * @param number
-	 * @return
+	 * To roman.
+	 *
+	 * @param number the number
+	 * @return the string
 	 */
 	public static String toRoman(int number) {
 		StringBuilder br = new StringBuilder("");
