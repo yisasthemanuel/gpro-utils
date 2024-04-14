@@ -306,9 +306,7 @@ public class GPROUtils {
         LocalDate date = LocalDate.parse(dateGproFormat, inputFormatter);
         
         // Formatear la fecha con el formato deseado
-        String formattedDate = date.format(outputFormatter);
-        
-        return formattedDate;
+        return date.format(outputFormatter);
 	}
 	
 }
